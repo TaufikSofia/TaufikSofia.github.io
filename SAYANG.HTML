@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu, Sayangku ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #ff6b6b;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 25px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #ff6b6b;
+            margin: 25px 0;
+            font-size: 2rem;
+        }
+        
+        p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .question-container {
+            margin: 40px 0;
+        }
+        
+        .question {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            position: relative;
+            min-height: 70px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-yes {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+        
+        .btn-no {
+            background: linear-gradient(45deg, #4ecdc4, #6de0d8);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .menu-home {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .menu-item {
+            background: linear-gradient(135deg, #fff5f5, #ffecec);
+            border-radius: 20px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid #ff6b6b;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .menu-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .menu-title {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .photobooth-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            height: 250px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 12px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .frame-1 { border: 12px solid #ff6b6b; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(-2deg); }
+        .frame-2 { border: 10px dashed #4ecdc4; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(1deg); }
+        .frame-3 { border: 8px double #ffd166; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(-3deg); }
+        .frame-4 { border: 12px dotted #ff9ff3; border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; transform: rotate(2deg); }
+        .frame-5 { border: 10px solid #96ceb4; border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; transform: rotate(-1deg); }
+        .frame-6 { border: 8px groove #feca57; border-radius: 30% 70% 50% 50% / 50% 50% 70% 30%; transform: rotate(3deg); }
+        .frame-7 { border: 12px ridge #ff6b6b; border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; transform: rotate(-2deg); }
+        .frame-8 { border: 10px inset #4ecdc4; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; transform: rotate(1deg); }
+        .frame-9 { border: 8px outset #ffd166; border-radius: 30% 70% 70% 30% / 30% 70% 30% 70%; transform: rotate(-3deg); }
+        .frame-10 { border: 12px solid #ff9ff3; border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%; transform: rotate(2deg); }
+        
+        .photobooth-frame:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+        
+        .photobooth-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .photo-sticker {
+            position: absolute;
+            font-size: 1.8rem;
+            z-index: 2;
+            animation: floatSticker 3s ease-in-out infinite;
+        }
+        
+        .sticker-1 { top: 8px; left: 8px; }
+        .sticker-2 { top: 8px; right: 8px; }
+        .sticker-3 { bottom: 8px; left: 8px; }
+        .sticker-4 { bottom: 8px; right: 8px; }
+        
+        @keyframes floatSticker {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+        
+        .music-player {
+            margin: 25px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .music-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .world-tour {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .destination {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 3px solid #4ecdc4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .destination:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .destination-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .destination-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .destination-title {
+            font-size: 1.4rem;
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .romantic-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border: 8px solid #ff6b6b;
+        }
+        
+        .romantic-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .romantic-message {
+            background: linear-gradient(135deg, #fff5f5, #ffebee);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 8px solid #ff6b6b;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .back-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #4ecdc4, #6de0d8);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart-float {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .edit-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            color: #721c24;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <!-- Section Pertanyaan -->
+    <div class="container" id="questionSection">
+        <h1>Hai Sayangku! <span class="heart">❤️</span></h1>
+        <p>Aku punya beberapa pertanyaan spesial untuk kamu...</p>
+        
+        <div class="question-container">
+            <div class="question" id="currentQuestion">Kamu kangen aku nggak?</div>
+            
+            <div class="btn-container">
+                <button class="btn btn-yes" onclick="answerQuestion(true)">Iyaaa 💖</button>
+                <button class="btn btn-no" onmouseover="moveNoButton()" onclick="answerQuestion(false)">Nggak 😝</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section Menu Home -->
+    <div class="container hidden" id="homeSection">
+        <h1>Home Kita Berdua <span class="heart">💕</span></h1>
+        <p>Pilih menu yang ingin kamu lihat sayang...</p>
+        
+        <div class="menu-home">
+            <div class="menu-item" onclick="showSection('memoriesSection')">
+                <span class="menu-icon">📸</span>
+                <div class="menu-title">Kenangan Kita</div>
+                <p>10 Foto indah kita</p>
+            </div>
+            
+            <div class="menu-item" onclick="showSection('musicSection')">
+                <span class="menu-icon">🎵</span>
+                <div class="menu-title">Lagu Favorit</div>
+                <p>Lagu spesial kita</p>
+            </div>
+            
+            <div class="menu-item" onclick="showSection('dreamsSection')">
+                <span class="menu-icon">✈️</span>
+                <div class="menu-title">Cita-Cita Kita</div>
+                <p>Keliling dunia bersama</p>
+            </div>
+            
+            <div class="menu-item" onclick="showSection('messageSection')">
+                <span class="menu-icon">💌</span>
+                <div class="menu-title">Pesan Romantis</div>
+                <p>Surat cinta untukmu</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section Kenangan Kita - 10 FOTO -->
+    <div class="container hidden" id="memoriesSection">
+        <h1>10 Kenangan Indah Kita <span class="heart">📸</span></h1>
+        <p class="section-description">Setiap foto adalah cerita, setiap momen adalah kenangan...</p>
+        
+        <div class="edit-note">
+            💡 <strong>FOTO SUDAH DIMASUKKAN!</strong> Ini foto kenangan kalian dari Google Drive
+        </div>
+        
+        <div class="photo-gallery">
+            <!-- FOTO 1 - Foto Kenangan Anda -->
+            <div class="photobooth-frame frame-1">
+                <img src="https://drive.google.com/uc?export=view&id=1cDEnt9b81uJVCO0w7EVQHM-gfD0QQYg-" alt="Foto Kenangan Kita" onerror="showError(this)">
+                <div class="photo-sticker sticker-1">💖</div>
+                <div class="photo-sticker sticker-2">😊</div>
+            </div>
+            
+            <!-- FOTO 2-10 - Default foto dulu -->
+            <div class="photobooth-frame frame-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 2">
+                <div class="photo-sticker sticker-1">🌟</div>
+                <div class="photo-sticker sticker-4">💕</div>
+            </div>
+            
+            <div class="photobooth-frame frame-3">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 3">
+                <div class="photo-sticker sticker-2">😂</div>
+                <div class="photo-sticker sticker-3">🎉</div>
+            </div>
+            
+            <div class="photobooth-frame frame-4">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 4">
+                <div class="photo-sticker sticker-1">🏖️</div>
+                <div class="photo-sticker sticker-4">☀️</div>
+            </div>
+            
+            <div class="photobooth-frame frame-5">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 5">
+                <div class="photo-sticker sticker-2">🤳</div>
+                <div class="photo-sticker sticker-3">💝</div>
+            </div>
+            
+            <div class="photobooth-frame frame-6">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 6">
+                <div class="photo-sticker sticker-1">🌹</div>
+                <div class="photo-sticker sticker-4">💑</div>
+            </div>
+            
+            <div class="photobooth-frame frame-7">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 7">
+                <div class="photo-sticker sticker-1">🌄</div>
+                <div class="photo-sticker sticker-2">🚶‍♂️</div>
+            </div>
+            
+            <div class="photobooth-frame frame-8">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 8">
+                <div class="photo-sticker sticker-3">✨</div>
+                <div class="photo-sticker sticker-4">🥰</div>
+            </div>
+            
+            <div class="photobooth-frame frame-9">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 9">
+                <div class="photo-sticker sticker-1">🎭</div>
+                <div class="photo-sticker sticker-2">😄</div>
+            </div>
+            
+            <div class="photobooth-frame frame-10">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Foto Kenangan 10">
+                <div class="photo-sticker sticker-3">🎊</div>
+                <div class="photo-sticker sticker-4">💫</div>
+            </div>
+        </div>
+        
+        <div class="edit-note">
+            💡 Untuk menambah foto lainnya, upload ke Google Drive dan ganti link di atas
+        </div>
+        
+        <button class="back-btn" onclick="showSection('homeSection')">Kembali ke Home</button>
+    </div>
+    
+    <!-- Section Lagu Favorit -->
+    <div class="container hidden" id="musicSection">
+        <h1>Lagu Favorit Kita <span class="heart">🎵</span></h1>
+        <p class="section-description">Lagu-lagu yang membuat hati kita berdetak bersama...</p>
+        
+        <div class="edit-note">
+            💡 <strong>LAGU SUDAH DIMASUKKAN!</strong> Ini lagu favorit kalian dari Google Drive
+        </div>
+        
+        <div class="music-player">
+            <span class="music-icon">🎧</span>
+            <h2>"Lagu Favorit Kita"</h2>
+            <audio id="loveSong" controls autoplay loop style="width: 100%; margin: 20px 0;">
+                <source src="https://drive.google.com/uc?export=download&id=1ChNue7RCDrZqBysY-osx4RFuzu19Df_D" type="audio/mp3">
+                Browser Anda tidak mendukung elemen audio.
+            </audio>
+            <p><small>Lagu spesial untuk kita berdua 💕</small></p>
+        </div>
+        
+        <div class="romantic-message">
+            "Setiap nada mengingatkanku padamu, setiap lirik adalah cerita kita. Musik adalah bahasa cinta kita yang tak terucapkan."
+        </div>
+        
+        <button class="back-btn" onclick="showSection('homeSection')">Kembali ke Home</button>
+    </div>
+    
+    <!-- Section Cita-Cita Keliling Dunia -->
+    <div class="container hidden" id="dreamsSection">
+        <h1>Cita-Cita Keliling Dunia <span class="heart">✈️</span></h1>
+        <p class="section-description">Destinasi impian yang ingin kita kunjungi bersama...</p>
+        
+        <div class="world-tour">
+            <!-- Mekkah -->
+            <div class="destination">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1543369259-5c0b2b0b0b0b?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Mekkah">
+                </div>
+                <span class="destination-icon">🕋</span>
+                <div class="destination-title">Mekkah, Arab Saudi</div>
+                <p>Menunaikan ibadah umrah dan haji bersama</p>
+            </div>
+            
+            <!-- Madinah -->
+            <div class="destination">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1543369259-5c0b2b0b0b0b?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Madinah">
+                </div>
+                <span class="destination-icon">🕌</span>
+                <div class="destination-title">Madinah, Arab Saudi</div>
+                <p>Ziarah ke Masjid Nabawi yang penuh berkah</p>
+            </div>
+            
+            <!-- Swiss -->
+            <div class="destination">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Swiss">
+                </div>
+                <span class="destination-icon">🏔️</span>
+                <div class="destination-title">Swiss</div>
+                <p>Menikmati keindahan Pegunungan Alpen</p>
+            </div>
+            
+            <!-- Turki -->
+            <div class="destination">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Turki">
+                </div>
+                <span class="destination-icon">🎈</span>
+                <div class="destination-title">Turki</div>
+                <p>Naik balon udara di Cappadocia</p>
+            </div>
+            
+            <!-- Mesir -->
+            <div class="destination">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80" alt="Mesir">
+                </div>
+                <span class="destination-icon">🐫</span>
+                <div class="destination-title">Mesir</div>
+                <p>Melihat Piramida dan sejarah kuno</p>
+            </div>
+        </div>
+        
+        <div class="romantic-message">
+            "Bersamamu, setiap perjalanan adalah petualangan, setiap destinasi adalah kenangan. Mari wujudkan mimpi kita melihat dunia!"
+        </div>
+        
+        <button class="back-btn" onclick="showSection('homeSection')">Kembali ke Home</button>
+    </div>
+    
+    <!-- Section Pesan Romantis -->
+    <div class="container hidden" id="messageSection">
+        <h1>Pesan Romantis <span class="heart">💌</span></h1>
+        <p class="section-description">Kata-kata dari hatiku yang paling dalam...</p>
+        
+        <div class="message-container">
+            <div class="romantic-photo">
+                <img src="https://drive.google.com/uc?export=view&id=1cDEnt9b81uJVCO0w7EVQHM-gfD0QQYg-" alt="Foto Romantis Kita" onerror="showError(this)">
+            </div>
+            
+            <div class="romantic-message">
+                <p>Sayangku tersayang,</p>
+                <p>Di antara miliaran manusia di dunia ini, aku bersyukur bisa menemukanmu. Kamu adalah jawaban dari semua doa-doa ku.</p>
+                <p>Bersamamu, aku belajar arti cinta sejati. Kamu membuatku ingin menjadi pribadi yang lebih baik setiap harinya.</p>
+                <p>Aku berjanji akan selalu menyayangimu, menghargaimu, dan menemani mu mewujudkan semua impian kita. Dari keliling dunia sampai membangun keluarga yang bahagia.</p>
+                <p>Terima kasih sudah menjadi bagian terindah dari hidupku.</p>
+                <p style="text-align: right; margin-top: 20px; font-weight: bold;">
+                    Dengan cinta yang tak terhingga,<br>
+                    Yang selalu menyayangimu 💖
+                </p>
+            </div>
+        </div>
+        
+        <button class="back-btn" onclick="showSection('homeSection')">Kembali ke Home</button>
+    </div>
+
+    <script>
+        // Pertanyaan-pertanyaan
+        const questions = [
+            "Kamu kangen aku nggak?",
+            "Kamu sayang aku nggak?",
+            "Kamu mau sama aku selamanya?",
+            "Aku adalah pacar terbaik kamu?",
+            "Kamu nggak akan ninggalin aku?"
+        ];
+        
+        let currentQuestionIndex = 0;
+        
+        // Fungsi untuk menjawab pertanyaan
+        function answerQuestion(answer) {
+            if (answer) {
+                // Jika jawabannya "Iya"
+                currentQuestionIndex++;
+                
+                if (currentQuestionIndex < questions.length) {
+                    // Tampilkan pertanyaan berikutnya
+                    document.getElementById('currentQuestion').textContent = questions[currentQuestionIndex];
+                } else {
+                    // Jika semua pertanyaan sudah dijawab, lanjut ke menu home
+                    document.getElementById('questionSection').classList.add('hidden');
+                    document.getElementById('homeSection').classList.remove('hidden');
+                    createFloatingHearts();
+                }
+            } else {
+                // Jika jawabannya "Tidak", pindahkan tombol "Tidak"
+                moveNoButton();
+            }
+        }
+        
+        // Fungsi untuk memindahkan tombol "Tidak"
+        function moveNoButton() {
+            const noButton = document.querySelector('.btn-no');
+            const container = document.querySelector('.btn-container');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Posisi acak dalam container
+            const randomX = Math.random() * (containerRect.width - noButton.offsetWidth);
+            const randomY = Math.random() * (containerRect.height - noButton.offsetHeight);
+            
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+        
+        // Fungsi untuk menampilkan section tertentu
+        function showSection(sectionId) {
+            // Sembunyikan semua section
+            const sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Tampilkan section yang dipilih
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Jika section musik, play audio
+            if (sectionId === 'musicSection') {
+                const audio = document.getElementById('loveSong');
+                audio.play().catch(e => {
+                    console.log("Autoplay diblokir");
+                });
+            }
+        }
+        
+        // Fungsi untuk membuat hati yang mengambang
+        function createFloatingHearts() {
+            const floatingHearts = document.getElementById('floatingHearts');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+                heart.innerHTML = '💖';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                floatingHearts.appendChild(heart);
+            }
+        }
+        
+        // Fungsi untuk menampilkan error jika foto/musik tidak bisa dimuat
+        function showError(element) {
+            element.alt = "Foto tidak dapat dimuat. Pastikan link Google Drive sudah benar dan file bisa diakses publik.";
+            console.log("Error loading media");
+        }
+        
+        // Membuat hati mengambang saat halaman dimuat
+        window.onload = function() {
+            createFloatingHearts();
+        };
+    </script>
+</body>
+</html>
